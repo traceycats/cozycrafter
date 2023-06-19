@@ -1,26 +1,21 @@
-import sys
 from ProjectClass import Project
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel
 
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-        self.setWindowTitle("hello world")
-        button = QPushButton("hello!")
-        button.clicked.connect(self.button_clicked)
-
-        greeting_message = QLabel("welcome to cozy craft! do you want to resume a project or begin a new one?")
-        self.setCentralWidget(button)
-
-    def button_clicked(self) :
-        test = Project("test", "crochet")
-        test.save_project_data()
-        print(test.name)
-
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-app.exec()
+def main() :
+    print("welcome to cozy crafts in the console! would you like to create a new project or resume a project?")
+    print("\tr: resume\n \tn: new\n \te:exit")
+    answer = input()
+    
+    if answer == 'r' :
+        print("wahoo")
+    elif answer == 'n' :
+        print("yippie, new project!")
+        testing = Project("testing", "crochet")
+        testing.save_project_data()
+    elif answer == "e" :
+        print("byebye!")
+        exit()
+    else :
+        print("try again :)")
+    
+if __name__ == '__main__' :
+    main()
